@@ -44,6 +44,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    print('initState 호출 됨');
+
+    User user = Provider.of<User>(context, listen: false);
+    user.setData(
+      name: '미정',
+      count: 0,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -55,12 +68,18 @@ class _MyHomePageState extends State<MyHomePage> {
           scrollDirection: Axis.vertical,
           children: [
             Container(
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Consumer<User>(
                 builder: (context, data, child) {
-                  return Text('이름 : ${data.name}, 클릭 수 : ${data.count}');
+                  return Text(
+                    '이름 : ${data.name}\n클릭 수 : ${data.count}',
+                    style: const TextStyle(
+                      fontSize: 30,
+                    ),
+                  );
                 },
               ),
             ),
