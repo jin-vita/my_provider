@@ -4,7 +4,10 @@ class User extends ChangeNotifier {
   String? name;
   int? count;
 
-  User({this.name, this.count});
+  User({
+    this.name,
+    this.count,
+  });
 
   void setData({name, count}) {
     this.name = name;
@@ -12,7 +15,10 @@ class User extends ChangeNotifier {
   }
 
   void applyData({name, count}) {
-    setData(name: name, count: count);
+    setData(
+      name: name,
+      count: count,
+    );
     notifyListeners();
   }
 }

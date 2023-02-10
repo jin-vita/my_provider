@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => User(),
-        )
+        ),
       ],
       child: const MaterialApp(
         home: MyHomePage(title: '내가 만든 앱'),
